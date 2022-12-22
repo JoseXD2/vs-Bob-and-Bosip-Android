@@ -143,7 +143,25 @@ class DownscrollOption extends Option
 		return FlxG.save.data.downscroll ? "Downscroll" : "Upscroll";
 	}
 }
+class AndroidControls extends Option
+{
+	public function new()
+	{
+		super();
+	}
 
+	public override function press():Bool
+	{
+		trace("switch");
+		FlxG.switchState(new android.AndroidControlsMenu());
+		return false;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Android Controls";
+	}
+}
 class EEE extends Option
 {
 	public function new(desc:String)
