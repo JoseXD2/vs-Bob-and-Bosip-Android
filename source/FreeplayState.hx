@@ -355,6 +355,9 @@ class FreeplayState extends MusicBeatState
 
 			trace(md);
 		 */
+		#if android
+		addVirtualPad(FULL, A_B);
+		#end
 		new FlxTimer().start(0.5, function(tmr:FlxTimer)
 		{
 			if (MainMenuState.firsttimeSplitEX) {
