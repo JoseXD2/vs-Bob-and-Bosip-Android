@@ -12,13 +12,14 @@ class RadialBlur extends FlxShader
 	@:glFragmentSource('
 		#pragma header
 
-	uniform float cx = 0.0;
-	uniform float cy = 0.0;
-    uniform float blurWidth = 10.0;
+	uniform float cx;
+	uniform float cy;
+    uniform float blurWidth;
 	
 	const int nsamples = 30;
 	
 	void main(){
+                #pragma body
 		vec4 color = texture2D(bitmap, openfl_TextureCoordv);
 			vec2 res;
 			res = openfl_TextureCoordv;
@@ -36,7 +37,7 @@ class RadialBlur extends FlxShader
 		for(int i = 0; i < nsamples; i++)
 		{
 			float scale = blurStart + (float(i)* precompute);
-		color += texture(bitmap, uv * scale + center);
+		color += texture2D(bitmap, uv * scale + center);
 		}
 		
 		
@@ -47,6 +48,10 @@ class RadialBlur extends FlxShader
 	}')
 	public function new()
 	{
+		cy.value = [0.0];
+		cx.value = [0.0];
+		blurWidth.value = [10.0];
+		
 		super();
 		
 		
