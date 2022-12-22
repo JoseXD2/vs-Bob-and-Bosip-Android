@@ -518,6 +518,10 @@ class MainMenuState extends MusicBeatState
 		super.create();
 		lock = new FlxSprite().loadGraphic(Paths.image('mainmenu/Lock'));
 		lock.scrollFactor.set(1, 1);
+				
+		#if android
+		addVirtualPad(UP_DOWN, A_B);
+		#end		
 	}
 
 	var selectedSomethin:Bool = false;
