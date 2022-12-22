@@ -10,6 +10,7 @@ class Scanline extends FlxShader
 
 		void main()
 		{
+                        #pragma body
 			if (mod(floor(openfl_TextureCoordv.y * openfl_TextureSize.y / scale), 2.0) == 0.0)
 				gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
 			else
@@ -17,6 +18,8 @@ class Scanline extends FlxShader
 		}')
 	public function new()
 	{
+		const.float.scale = [1.0];
 		super();
 	}
 }
+   
