@@ -327,6 +327,10 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 165");
 
+		               #if android
+addVirtualPad(FULL, A_B);
+#end
+	
 		super.create();
 		changeDifficulty();
 		bobmadshake = new FlxSprite( -198, -118).loadGraphic(Paths.image('storymenu/bobscreen'));
