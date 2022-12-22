@@ -1667,7 +1667,7 @@ class PlayState extends MusicBeatState
 			default:
 				gfVersion = 'gf';
 		}
-		if (FileSystem.exists(Paths.txt(SONG.song.toLowerCase() + "/preload" + suf)))
+		if (Assets.exists(Paths.txt(SONG.song.toLowerCase() + "/preload" + suf)))
 			{
 				var characters:Array<String> = CoolUtil.preloadfile(Paths.txt(SONG.song.toLowerCase() + "/preload" + suf));
 				trace('Load Assets');
@@ -2356,6 +2356,10 @@ class PlayState extends MusicBeatState
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
 
+		#if android
+	        addAndroidControls();
+	#end
+		
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -2598,6 +2602,10 @@ class PlayState extends MusicBeatState
 
 	function startCountdown():Void
 	{
+		#if android
+	        androidc.visible = true;
+	        #end
+			
 		inCutscene = false;
 
 		generateStaticArrows(0);
