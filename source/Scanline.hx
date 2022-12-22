@@ -18,7 +18,7 @@ class Scanline extends FlxShader
 		}')
 	public function new()
 	{
-		const.float.scale = [1.0];
+		
 		super();
 	}
 }
