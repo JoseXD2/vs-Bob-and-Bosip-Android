@@ -997,7 +997,7 @@ class FreeplayState extends MusicBeatState
 				icon.visible = false;
 				if (ex) {
 					if (songs[i].songName.toLowerCase() != 'gameover' || songs[i].songName.toLowerCase() == 'gameover' && FlxG.save.data.playedGO) { 
-						if (FileSystem.exists(Paths.instEXcheck(songs[i].songName.toLowerCase()))) {
+						if (Assets.exists(Paths.instEXcheck(songs[i].songName.toLowerCase()))) {
 							grpSongs.add(songText);
 							realLength++;
 							iconArray.push(icon);
@@ -1011,7 +1011,7 @@ class FreeplayState extends MusicBeatState
 					}
 				}
 				
-				if (FileSystem.exists(Paths.instEXcheck(songs[i].songName.toLowerCase())) && presetPos) {
+				if (Assets.exists(Paths.instEXcheck(songs[i].songName.toLowerCase())) && presetPos) {
 					if (songs[i].songName.toLowerCase() != 'gameover') {
 						songText.x = oldPositions[i].x;
 						songText.y = oldPositions[i].y;
