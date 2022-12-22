@@ -15,7 +15,7 @@ import flixel.tweens.FlxTween;
 import flixel.math.FlxMath;
 import openfl.geom.Point;
 import flixel.system.FlxSound;
-
+import openfl.utils.Assets;
 #if windows
 import Discord.DiscordClient;
 import Sys;
@@ -132,7 +132,7 @@ class MusicPlayerSubstate extends MusicBeatSubstate
 		{
 			var data:Array<String> = initSonglist[i].split(':');
 			if (unlockedSongs[i]) {
-				if (FileSystem.exists(Paths.instcheck(data[0]))) {
+				if (Assets.exists(Paths.instcheck(data[0]))) {
 					songsToPlay.push(Paths.inst(data[0]));
 					songNames.push(data[0]);
 					var daJson = Song.loadFromJson(data[0].toLowerCase() + '-hard', data[0].toLowerCase());
